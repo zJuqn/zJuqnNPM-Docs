@@ -19,21 +19,21 @@ $ npm install zjuqn
 
 -  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
 
--  [`WelcomeImage()`](https://npmjs.com/package/zjuqn#welcomeImage) - Funcion para crear una imagen con canvas
+-  [`WelcomeImage()`](https://github.com/zJuqn/zJuqnNPM-Docs#welcomeImage) - Funcion para crear una imagen con canvas
 
--  [`Wikipedia()`](https://npmjs.com/package/zjuqn#wikipedia) - Funcion para buscar preguntas en wikipedia
+-  [`Wikipedia()`](https://github.com/zJuqn/zJuqnNPM-Docs#wikipedia) - Funcion para buscar preguntas en wikipedia
 
-- [`npmData()`](https://npmjs.com/package/zjuqn#npmdata) - Funcion para obtener datos de un npm
+- [`npmData()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para obtener datos de un npm
 
-- [`ship()`](https://npmjs.com/package/zjuqn#ship) - Simula un ship/amor
+- [`ship()`](https://github.com/zJuqn/zJuqnNPM-Docs#ship) - Simula un ship/amor
 
 
 ### Funciones de imagenes:
 
 | Funcion       |             Descripcion                                    |
 |---------------|------------------------------------------------------------|
-| blur          | Coloca tu avatar borroso                                   |
-| circle        | Coloca tu avatar en forma de circulo                       |
+| [blur](https://github.com/zJuqn/zJuqnNPM-Docs#blur)          | Coloca tu avatar borroso                                   |
+| [circle](https://github.com/zJuqn/zJuqnNPM-Docs#circle)        | Coloca tu avatar en forma de circulo                       |
 | lisa          | Crea una imagen con un tablero con texto                   |
 | gay           | Coloca sobre un avatar/imagen la famosa bandera gay        |
 | gobierno      | Coloca tu avatar en una junta de gobierno                  |
