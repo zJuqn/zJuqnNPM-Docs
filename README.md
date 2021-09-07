@@ -25,7 +25,7 @@ $ npm install zjuqn
 
 -  [`npmData()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para obtener datos de un npm
 
--  [`boostCard()`](https://npmjs.com/package/zjuqn#boostcard) - Funcion crear una boostCard
+-  [`boostCard()`](https://github.com/zJuqn/zJuqnNPM-Docs#boostcard) - Funcion crear una boostCard
 
 -  [`ship()`](https://github.com/zJuqn/zJuqnNPM-Docs#ship) - Simula un ship/amor
 
@@ -460,4 +460,4 @@ zjuqn.invert(message.author.avatarURL({ format: 'png'})).then(m => {
 })
 ```
 
-[Servidor De Soporte](https://discord.gg/fCbkwngUHz)
+[Servidor De Soporte](https://discord.gg/fCbkwngUHz) | [zJuqn NPM](https://www.npmjs.com/package/zjuqn)
