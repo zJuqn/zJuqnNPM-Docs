@@ -17,7 +17,7 @@ $ npm install zjuqn
 ### Funciones:
 
 
--  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#passwords) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
+-  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#passwordsGen) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
 
 -  [`WelcomeImage()`](https://github.com/zJuqn/zJuqnNPM-Docs#welcomeImage) - Funcion para crear una imagen con canvas
 
