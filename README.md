@@ -23,9 +23,11 @@ $ npm install zjuqn
 
 -  [`Wikipedia()`](https://github.com/zJuqn/zJuqnNPM-Docs#wikipedia) - Funcion para buscar preguntas en wikipedia
 
-- [`npmData()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para obtener datos de un npm
+-  [`npmData()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para obtener datos de un npm
 
-- [`ship()`](https://github.com/zJuqn/zJuqnNPM-Docs#ship) - Simula un ship/amor
+-  [`boostCard()`](https://npmjs.com/package/zjuqn#boostcard) - Funcion crear una boostCard
+
+-  [`ship()`](https://github.com/zJuqn/zJuqnNPM-Docs#ship) - Simula un ship/amor
 
 
 ### Funciones de imagenes:
@@ -165,6 +167,38 @@ const Discord = require('discord.js')
         })
 
         res.fetch()//Ejecutamos la funcion fetch que es la que nos enviara el embed con la informacion del npm
+```
+
+## boostCard
+
+```js
+//Definimos el package
+const  zjuqn  = require('zjuqn')
+
+//Hacemos la funcion
+const card = zjuqn.boostCard
+
+//Definimos una constante con el avatar
+const av = message.author.avatarURL({ format: 'png'})
+
+
+//Genera la imagen
+const boostCa = await card(av)
+
+//Envia la imagen
+
+//Definimos discord.js
+const { MessageEmbed } = require('discord.js')
+
+//Hacemos un nuevo embed
+
+const embedCard = new MessageEmbed()
+.setTitle("BoostCard")
+.setImage(boostCa)//Colocamos la boostCard en la imagen
+.setFooter("Gracias por el boost")
+
+message.channel.send({embeds: [embedCard]})//Enviamos el embed
+
 ```
 
 ## ship
