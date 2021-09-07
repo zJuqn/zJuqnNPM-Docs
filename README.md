@@ -17,7 +17,7 @@ $ npm install zjuqn
 ### Funciones:
 
 
--  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
+-  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#passwords) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
 
 -  [`WelcomeImage()`](https://github.com/zJuqn/zJuqnNPM-Docs#welcomeImage) - Funcion para crear una imagen con canvas
 
@@ -34,16 +34,16 @@ $ npm install zjuqn
 |---------------|------------------------------------------------------------|
 | [blur](https://github.com/zJuqn/zJuqnNPM-Docs#blur)          | Coloca tu avatar borroso                                   |
 | [circle](https://github.com/zJuqn/zJuqnNPM-Docs#circle)        | Coloca tu avatar en forma de circulo                       |
-| lisa          | Crea una imagen con un tablero con texto                   |
-| gay           | Coloca sobre un avatar/imagen la famosa bandera gay        |
-| gobierno      | Coloca tu avatar en una junta de gobierno                  |
-| invert        | Invierte los colores de tu avatar/imagen                   |
-| sepia         | Coloca la imagen/avatar con un tono calido                 |
-| stonks        | Coloca un avatar/imagen en la cara del stonks              |
-| triggered     | Coloca tu avatar/imagen en forma furiosa                   |
-| deletetrash   | Haz que tu avatar/imagen aparezca en una ventana de windows|
-| gray          | Invierte los colores de tu avatar/imagen a grises          |
-| anuncio       | Coloca tu avatar/imagen en un anuncio                      |
+| [lisa](https://github.com/zJuqn/zJuqnNPM-Docs#lisa)          | Crea una imagen con un tablero con texto                   |
+| [gay](https://github.com/zJuqn/zJuqnNPM-Docs#gay)           | Coloca sobre un avatar/imagen la famosa bandera gay        |
+| [gobierno](https://github.com/zJuqn/zJuqnNPM-Docs#gobierno)      | Coloca tu avatar en una junta de gobierno                  |
+| [invert](https://github.com/zJuqn/zJuqnNPM-Docs#invert)        | Invierte los colores de tu avatar/imagen                   |
+| [sepia](https://github.com/zJuqn/zJuqnNPM-Docs#sepia)         | Coloca la imagen/avatar con un tono calido                 |
+| [stonks](https://github.com/zJuqn/zJuqnNPM-Docs#stonks)        | Coloca un avatar/imagen en la cara del stonks              |
+| [triggered](https://github.com/zJuqn/zJuqnNPM-Docs#triggered)     | Coloca tu avatar/imagen en forma furiosa                   |
+| [deletetrash](https://github.com/zJuqn/zJuqnNPM-Docs#deletetrash)   | Haz que tu avatar/imagen aparezca en una ventana de windows|
+| [gray](https://github.com/zJuqn/zJuqnNPM-Docs#gray)          | Invierte los colores de tu avatar/imagen a grises          |
+| [anuncio](https://github.com/zJuqn/zJuqnNPM-Docs#anuncio)       | Coloca tu avatar/imagen en un anuncio                      |
 
 # || Funciones:
 
@@ -425,3 +425,5 @@ zjuqn.invert(message.author.avatarURL({ format: 'png'})).then(m => {
     message.channel.send({ files: [m]})
 })
 ```
+
+[Servidor De Soporte](https://discord.gg/fCbkwngUHz)
