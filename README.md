@@ -17,15 +17,20 @@ $ npm install zjuqn
 ### Funciones:
 
 
--  [`Passwords()`](https://github.com/zJuqn/zJuqnNPM-Docs#passwordsGen) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
+-  [`Passwords()`](https://www.npmjs.com/package/zjuqn#passwordsGen) - Funcion para crear contraseñas con la cantidad de caracteres que elijas
 
--  [`WelcomeImage()`](https://github.com/zJuqn/zJuqnNPM-Docs#welcomeImage) - Funcion para crear una imagen con canvas
+-  [`WelcomeImage()`](https://npmjs.com/package/zjuqn#welcomeImage) - Funcion para crear una imagen con canvas
 
--  [`Wikipedia()`](https://github.com/zJuqn/zJuqnNPM-Docs#wikipedia) - Funcion para buscar preguntas en wikipedia
+- [`youtubeChannelInfo()`](https://npmjs.com/package/zjuqn#youtubechannelinfo) - Mira las estadisticas de cualquier canal de YT
 
--  [`npmData()`](https://github.com/zJuqn/zJuqnNPM-Docs#npmdata) - Funcion para obtener datos de un npm
+-  [`Wikipedia()`](https://npmjs.com/package/zjuqn#wikipedia) - Funcion para buscar preguntas en wikipedia
 
--  [`boostCard()`](https://github.com/zJuqn/zJuqnNPM-Docs#boostcard) - Funcion crear una boostCard
+-  [`npmData()`](https://npmjs.com/package/zjuqn#npmdata) - Funcion para obtener datos de un npm
+
+-  [`boostCard()`](https://npmjs.com/package/zjuqn#boostcard) - Funcion crear una boostCard
+
+-  [`minecraftLogro()`](https://npmjs.com/package/zjuqn#minecraftlogro) - Simula un logro de Minecraft
+
 
 
 # || Funciones:
@@ -54,26 +59,36 @@ Esta funcion se usa para crear una imagen de bienvenida usando el package [canva
 
 La función devuelve un Promise(\<Attachment\>) para almacenar en búfer la imagen y convertirla en un [Attachment](https://discord.js.org/#/docs/main/stable/class/MessageAttachment), así que la funcion debe estar acompañada de un await.
 
+Esta funcion requiere de un token. Puedes obtenerlo dentro del servidor de soporte del NPM. Haciendo [Click Aqui](https://discord.gg/fCbkwngUHz)
+
 
 ```js
 await  WelcomeImage()
 ```
 
 **Parametros requeridos:**
+- token
 - background
 - avatar
-- subtitulo
+- titulo
 - color
 
 **Ejemplo de los parametros:**
 
 ```js
-await  WelcomeImage(background, avatar, subtitulo, color)
+await  WelcomeImage({
+            token: "tu token",
+            background: "tu background",
+            avatar: "tu avatar",
+            title: "El titulo que quieras",
+            color: "El color pero sin el #"
+})
 ```
 
 **Ejemplo:**
 
 ```js
+
 //Definimos el package
 const { WelcomeImage } = require('zjuqn')
 
@@ -84,17 +99,55 @@ const bg = "https://cdn.discordapp.com/attachments/881694247747731518/8830736885
 const av = message.author.displayAvatarURL({ format: 'png'})
 
 //Definimos el subtitulo
-const sub = "Bienvenido"
+const titleWel = "Bienvenido"
 
 //Definimos el color
-const color = "#ccc"
+const colorWel = "ffff"
 
+const data = await new WelcomeImage({
+            token: "tu token",
+            background: bg,
+            avatar: av,
+            title: titleWel,
+            color: colorWel,
+})
 
-//Creamos la imagen
-const imagen = await WelcomeImage(bg, av, sub, color)
+//Obtenemos el attachment
+const imagen = await data.obtener()
 
 //Enviamos la imagen
-        message.channel.send({ files: [imagen]})
+message.channel.send({ files : [imagen]})
+```
+
+## youtubeChannelInfo
+
+Con esta funcion podemos mirar la estadisticas de cualquier canal de YouTube
+
+```js
+//Definimos el package
+const { youtubeChannelInfo } = require('zjuqn')
+//Definimos discord.js
+const Discord = require('discord.js')
+
+/**
+ * @param {Discord.Message} message hacemos un parametro de message
+ * @param {String[]} args hacemos un parametro de args
+ */
+
+//Definimos los argumentos y si no coloca argumentos retornamos
+        let canalName = args.join(" ")
+        if(!canalName) {
+            return message.reply(':x: | Porfavor ingresa el nombre del canal a buscar')
+        }
+
+        //Creamos una nueva funcion de youtubeChannelInfo
+        const res = new youtubeChannelInfo({
+            message: message,//Definimos el message
+            color: "BLUE",//Definimos el color del embed
+            channelName: canalName//Definimos el canal que buscara
+        })
+
+        res.send()//Ejecutamos la funcion send con la constante res que es donde guardamos los datos a buscar
 ```
 
 ## Wikipedia
@@ -182,4 +235,122 @@ message.channel.send({embeds: [embedCard]})//Enviamos el embed
 
 ```
 
-[Servidor De Soporte](https://discord.gg/fCbkwngUHz) | [zJuqn NPM](https://www.npmjs.com/package/zjuqn)
+## minecraftLogro
+
+La función devuelve un Promise(\<Attachment\>) para almacenar en búfer la imagen y convertirla en un [Attachment](https://discord.js.org/#/docs/main/stable/class/MessageAttachment), así que la funcion debe estar acompañada de un await.
+
+```js
+const zjuqn = require("zjuqn")
+
+await zjuqn.minecraftLogro(logro)
+```
+
+**Parametro:**
+
+- logro
+
+**Ejemplo:**
+
+```js
+/**
+ * @param {String[]} args
+ */ 
+
+//Definimos el package
+const zjuqn = require('zjuqn')
+
+//Definimos los argumentos
+const logroName = args.join(" ")
+if(!logroName) {
+    message.reply("Debes ingresar el nombre del logro")
+    return;
+    //Si no coloca argumentos retornas
+}
+if(logroName.length > 20) {
+    message.reply("El nombre del logro debe tener menos de 20 caracteres")
+    return;
+    //Hacemos esta condicional para evitar problemas en la consola de parte del npm
+}
+
+//Realizamos la funcion
+const minecraft = await zjuqn.minecraftLogro(logroName)
+
+//Enviamos el attachment
+message.channel.send({ files: [minecraft]})
+```
+
+## Img
+
+Hola, esta es una funcion en desarrollo aun, pero ya esta lista, si tienes algun tipo de problema lo puedes decir en el [Discord](https://discord.gg/fCbkwngUHz) de soporte.
+
+La funcion es una class con funciones dentro.
+
+### Ejemplo 1:
+```js
+const zjuqn = require('zjuqn')//Definimos el package
+
+const img = new zjuqn.Img("Tu token")//Cargamos las funciones, donde dice tu token necesitas un token de la api. Se consigue totalmente gratis en el servidor de soporte
+```
+
+### Funciones
+
+- triggered | Esta es una funcion GIF
+- gay
+- nostonks
+- stonks
+- lisa
+- anuncio
+
+### Ejemplo de la funcion triggered
+```js
+const zjuqn = require('zjuqn')//Definimos el package
+
+const img = new zjuqn.Img("Tu token")//Cargamos las funciones, donde dice tu token necesitas un token de la api. Se consigue totalmente gratis en el servidor de soporte
+
+const triggered = img.triggered("link de tu avatar")
+
+<message>.channel.send({
+    files: [{
+        attachment: triggered,
+        name: "zjuqn_npm_triggered.gif"
+    }]
+})
+```
+
+### Ejemplo de una funcion normal
+```js
+const zjuqn = require('zjuqn')//Definimos el package
+
+const img = new zjuqn.Img("Tu token")//Cargamos las funciones, donde dice tu token necesitas un token de la api. Se consigue totalmente gratis en el servidor de soporte
+
+const data = img.<funcion>("link de tu avatar")
+
+<message>.channel.send({
+    files: [data]
+})
+```
+
+### Ejemplo de la funcion lisa
+```js
+const zjuqn = require('zjuqn')//Definimos el package
+
+const img = new zjuqn.Img("Tu token")//Cargamos las funciones, donde dice tu token necesitas un token de la api. Se consigue totalmente gratis en el servidor de soporte
+
+const data = img.lisa("tu texto")
+
+<message>.channel.send({
+    files: [data]
+})
+```
+
+**Para obtener un token puedes ingresar al Discord de Soporte, es totalmente gratis**
+
+- Es muy importante que en el apartado de client pongas el client de tu bot o como tu lo tengas definido, es necesario para llevar acabo la funcion, si el client es invalido la funcion te dara error
+
+## Links
+
+<a href="https://discord.gg/fCbkwngUHz"><img src="https://discord.com/api/guilds/872190574852210738/widget.png?style=banner2"></img></a>
+
+- [Documentacion](https://github.com/zJuqn/zJuqnNPM-Docs.git)(En desarrollo)
+
+- Obten tu token [click aqui](https://discord.gg/fCbkwngUHz)
